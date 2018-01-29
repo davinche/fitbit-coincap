@@ -5,6 +5,10 @@
 
 CoinCap app for the [Fitbit Ionic][ionic]. Data for the app is fetched from <https://coincap.io>
 
+**Note**: <https://coincap.io> is not maintained by me. I am simply using their REST API.
+
+
+
 ## Watch List Setup
 
 1. Open the setings page for the app
