@@ -1,0 +1,17 @@
+{
+  "fitbit": {
+    "appUUID": "99506808-6e06-4710-8eb4-42660b2e6cd0",
+    "appType": "app",
+    "appDisplayName": "CoinCap",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#8bc34a",
+    "requestedPermissions": [
+      "access_internet"
+    ],
+    "i18n": {
+      "en": {
+        "name": "CoinCap"
+      }
+    }
+  }
+}

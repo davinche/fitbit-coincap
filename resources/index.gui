@@ -1,0 +1,43 @@
+<svg id="main">
+  <defs>
+    <symbol id="coin-price" href="#scrollview-item" height="92">
+      <rect id="price-bg"></rect>
+      <text id="coin-name" x="6" y="26"></text>
+      <text id="coin-price" x="6" y="70"></text>
+      <text id="coin-price-change" y="30" x="100%-6"></text>
+      <text id="tf-hour" y="60" x="100%-6">24hr</text>
+    </symbol>
+  </defs>
+  
+  <use href="#scrollview">
+    <use id="app-header" href="#scrollview-header" height="60">
+      <rect width="100%" height="100%" fill="black"></rect>
+      <text x="6" y="44" id="header-text">CoinCap</text>
+      <text x="100%-6" y="40" id="header-time">5:21PM</text>
+    </use>
+    
+    <use id="coin-0" class="coin-item" href="#coin-price"></use>
+    <use id="coin-1" class="coin-item" href="#coin-price"></use>
+    <use id="coin-2" class="coin-item" href="#coin-price"></use>
+    <use id="coin-3" class="coin-item" href="#coin-price"></use>
+    <use id="coin-4" class="coin-item" href="#coin-price"></use>
+    <use id="coin-5" class="coin-item" href="#coin-price"></use>
+    <use id="coin-6" class="coin-item" href="#coin-price"></use>
+    <use id="coin-7" class="coin-item" href="#coin-price"></use>
+    <use id="coin-8" class="coin-item" href="#coin-price"></use>
+    <use id="coin-9" class="coin-item" href="#coin-price"></use>
+    <use id="coin-10" class="coin-item" href="#coin-price"></use>
+    <use id="coin-11" class="coin-item" href="#coin-price"></use>
+    <use id="coin-12" class="coin-item" href="#coin-price"></use>
+    <use id="coin-13" class="coin-item" href="#coin-price"></use>
+    <use id="coin-14" class="coin-item" href="#coin-price"></use>
+    <use id="coin-15" class="coin-item" href="#coin-price"></use>
+    <use id="coin-16" class="coin-item" href="#coin-price"></use>
+    <use id="coin-17" class="coin-item" href="#coin-price"></use>
+    <use id="coin-18" class="coin-item" href="#coin-price"></use>
+    <use id="coin-19" class="coin-item" href="#coin-price"></use>
+  </use>
+  
+  <text id="loading-text" x="50%" y="50%+40">Loading Coin Data...</text>
+  
+</svg>
