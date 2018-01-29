@@ -12,7 +12,7 @@ const MILLISECONDS_PER_MINUTE = 1000 * 60;
 
 // Helpful to check whether we are connected or not.
 // setInterval(function() {
-//   console.log("Companion (" + me.buildId + ") running - Connectivity status=" + messaging.peerSocket.readyState + 
+//   console.log("Companion (" + me.buildId + ") running - Connectivity status=" + messaging.peerSocket.readyState +
 //               " Connected? " + (messaging.peerSocket.readyState == messaging.peerSocket.OPEN ? "YES" : "no"));
 // }, 3000);
 
@@ -26,7 +26,7 @@ const refreshCoinsList = () => {
     return data.map((item) => {
       return {
         name: item.symbol,
-        value: item
+        value: `${item.name} (${item.symbol})`
       };
     });
   })

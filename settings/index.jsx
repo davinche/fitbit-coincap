@@ -20,14 +20,24 @@ function Settings(props) {
               onAutocomplete={(value) => {
                 const c = props.settingsStorage.getItem('coinslist');
                 if (!c) {
-                  return value;
+                  return [{name: value, value}];
                 }
                 const coinsList = JSON.parse(c);
-                return coinsList.filter((option) => option.name.startsWith(value.toUpperCase()));
+                const upper = value.toUpperCase();
+                return coinsList.filter((item) => {
+                  return item.name.toUpperCase().startsWith(upper) ||
+                    item.value.toUpperCase().indexOf(upper) > -1;
+                });
               }}
+              renderAutocomplete={
+                (option) => {
+                  return (
+                    <Text>{option.value}</Text>
+                  );
+                }
+              }
             />
           }
-         
          />
       </Section>
     </Page>
