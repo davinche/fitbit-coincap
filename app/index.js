@@ -37,7 +37,7 @@ function priceStyle(coin, style='neutral') {
   const name = coin.getElementById('coin-name');
   const price = coin.getElementById('coin-price');
   const change = coin.getElementById('coin-price-change');
-  
+
   switch(style) {
     case 'up':
       bg.style.fill = '#003A01';
@@ -75,7 +75,7 @@ function updateElem(elem, coin, status, fromCache=false) {
   if (status === 'failure') {
     return;
   }
-  
+
   const price = ((Math.floor(coin.price * 100) / 100) + '').split('.');
   const dollar = price[0];
   const cents = typeof price[1] === 'undefined' ? '00' :
@@ -113,12 +113,12 @@ function initCoinData(evt) {
       elem.style.display = 'none';
     }
   }
-  
+
   const {coin, index, status, fromCache} = evt.data.data;
   const elem = document.getElementById(`coin-${index}`);
   barrierState.updateList[index] = {elem, coin, status, fromCache};
   barrierState.current += 1;
-  
+
   // Keep track of items that were from cache so we can request for fresh copy
   if (fromCache) {
     barrierState.staleList.push({index, name: coin.id});
@@ -130,7 +130,7 @@ function initCoinData(evt) {
     barrierState.updateList.forEach((s) => {
       updateElem(s.elem, s.coin, s.status, s.fromCache);
     });
-    
+
     // request for updates
     requestForCoinUpdate(barrierState.staleList);
     // reset barrier state
@@ -144,7 +144,7 @@ function requestForCoinUpdate(staleList) {
     logger.error('peer socket not ready');
     return;
   }
-  
+
   staleList.forEach((c, index) => {
     const data = {type: 'updateCoin'};
     data.value = c;
@@ -176,4 +176,12 @@ peerSocket.onmessage = function(evt) {
   logger.info(`type=${evt.data.type}`);
   initCoinData(evt);
   updateCoinData(evt);
+};
+
+peerSocket.onerror = function(err) {
+  logger.log('peerSocket error');
+  logger.error(`code=${err.code}; message=${err.message}`);
+  if (barrierState.inProgress) {
+    document.getElementById('loading-text').textContent = 'Could not load coins.';
+  }
 };
