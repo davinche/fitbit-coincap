@@ -8,6 +8,10 @@
     "requestedPermissions": [
       "access_internet"
     ],
+    "buildTargets": [
+      "meson",
+      "higgs"
+    ],
     "i18n": {
       "en": {
         "name": "CoinCap"
